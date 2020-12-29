@@ -19,6 +19,7 @@ public class LongestSubArrayGivenSum {
                 res=i+1;
             if(!hm.containsKey(k))
                 hm.put(pre_sum,i);
+            //logic is if a pre fix sum already exisit it means sum of elements between these indices is equal to k
             if(hm.containsKey(pre_sum-k))
                 res=Math.max(res,i-hm.get(pre_sum-k));
         }

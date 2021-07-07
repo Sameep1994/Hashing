@@ -7,7 +7,8 @@ public class LongestSubArrayGivenSum {
         System.out.println(subArraySum(ip,k));
     }
 //we are using same prefixsum araay logic, using hashmap to decrease retrival time
-//if a prefix sum is not present then only we are entering it and its index, this is done so that the leftmost occurence of an integer is stored
+//if a prefix sum is not present then only we are entering it and its index,
+// this is done so that the leftmost occurence of an integer is stored
 //if we find prefixsum-k in hm then current index-retrival of index in hashmap gives the length
     public static Integer subArraySum(int[] a,int k){
         HashMap<Integer,Integer> hm = new HashMap<>();
@@ -17,7 +18,7 @@ public class LongestSubArrayGivenSum {
             pre_sum+=a[i];
             if(pre_sum==k)
                 res=i+1;
-            if(!hm.containsKey(k))
+            if(!hm.containsKey(pre_sum))
                 hm.put(pre_sum,i);
             //logic is if a pre fix sum already exisit it means sum of elements between these indices is equal to k
             if(hm.containsKey(pre_sum-k))
